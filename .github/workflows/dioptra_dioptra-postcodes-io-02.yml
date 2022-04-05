@@ -43,6 +43,13 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      - name: Log in to container registry
+        uses: docker/login-action@v1
+        with:
+          registry: https://dioptraregistry.azurecr.io/
+          username: ${{ secrets.AZURE_USERNAME }}
+          password: ${{ secrets.AZURE_PASSWORD }}
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -50,4 +57,4 @@ jobs:
           app-name: 'dioptra-postcodes-io-02'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_5175567e171e4a778075810912fab453 }}
-          images: 'dioptraregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_56d550be9ca74a219f6d017a81663b02 }}/dioptra-postcodes-io-02:${{ github.sha }}'
+          images: 'dioptraregistry.azurecr.io/dioptra-postcodes-io-02:${{ github.sha }}'
