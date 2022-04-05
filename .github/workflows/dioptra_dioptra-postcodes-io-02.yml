@@ -31,7 +31,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: dioptraregistry.azurecr.io/${{ secrets.AZURE_USERNAME }}/dioptra-postcodes-io-02:${{ github.sha }}
+          tags: dioptraregistry.azurecr.io/dioptra-postcodes-io-02:${{ github.sha }}
+          #tags: dioptraregistry.azurecr.io/${{ secrets.AZURE_USERNAME }}/dioptra-postcodes-io-02:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
