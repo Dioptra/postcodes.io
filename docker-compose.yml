@@ -14,6 +14,8 @@ services:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_USER=postcodesio
       - POSTGRES_HOST=db
+      - NEAREST_RADIUS_MAX=16000
+      - NEAREST_LIMIT_MAX=1000000
     ports:
       - 8000:8000
   db:
