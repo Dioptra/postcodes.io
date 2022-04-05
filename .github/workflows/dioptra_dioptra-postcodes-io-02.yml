@@ -23,15 +23,15 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: https://dioptraregistry.azurecr.io/
-          username: ${{ secrets.AzureAppService_ContainerUsername_56d550be9ca74a219f6d017a81663b02 }}
-          password: ${{ secrets.AzureAppService_ContainerPassword_673a6024ffaf4874bd968e8bc2ff2269 }}
+          username: ${{ secrets.AZURE_USERNAME }}
+          password: ${{ secrets.AZURE_PASSWORD }}
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: dioptraregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_56d550be9ca74a219f6d017a81663b02 }}/dioptra-postcodes-io-02:${{ github.sha }}
+          tags: dioptraregistry.azurecr.io/${{ secrets.AZURE_USERNAME }}/dioptra-postcodes-io-02:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
