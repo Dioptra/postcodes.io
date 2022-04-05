@@ -34,7 +34,7 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az acr login --name <acrName>
+            az acr login --name https://dioptraregistry.azurecr.io/
             docker-compose up
             docker-compose push
       #- name: Build and push container image to registry
