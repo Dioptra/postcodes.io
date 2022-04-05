@@ -14,7 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup Docker
+        uses: docker-practice/actions-setup-docker@master
+      - run: |
+          set -x
+          docker version
+        
+      - name: Checkout
+        uses: actions/checkout@v2
       
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y-%m-%d--%H-%M-%S')" >> $GITHUB_ENV
