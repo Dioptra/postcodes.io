@@ -28,7 +28,7 @@ jobs:
           #tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           #subscription-id: ${{ secrets.AZURE_SECRET }} 
           creds: ${{ secrets.AZURE_SECRET }}
-          enable-AzPSSession: true
+          #enable-AzPSSession: true
 
       - name: Setup Docker
         uses: docker-practice/actions-setup-docker@master
