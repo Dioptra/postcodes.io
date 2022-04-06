@@ -20,7 +20,13 @@ jobs:
           registry: https://dioptraregistry.azurecr.io/
           username: ${{ secrets.AZURE_USERNAME }}
           password: ${{ secrets.AZURE_PASSWORD }}
-        
+
+      - name: Container registry login
+        uses: DockerCompose@0
+        with:
+          containerregistrytype: Container Registry
+          dockerRegistryEndpoint: Dioptra
+
      # - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
      #   uses: azure/login@v1
      #   with:
